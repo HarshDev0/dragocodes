@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>Privacy Policy — DRAGOCODES</title>
+    <title>Terms & Conditions — DRAGOCODES</title>
     <meta name="robots" content="noindex, follow">
     <link rel="icon" type="image/svg+xml" href="../assets/favicons/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -77,7 +77,7 @@
 
         body:hover .cursor { opacity: 1; }
 
-        /* NOISE OVERLAY */
+        /* NOISE */
         body::before {
             content: '';
             position: fixed;
@@ -171,16 +171,7 @@
 
         .nav-cta:hover { background: var(--accent); }
 
-        .cookie-l{
-            color: var(--accent);
-        }
-
-        .cookie-l:hover{
-            color: #8d0000;
-            transition: color 0.2s;
-        }
-
-        /* ─── LEGAL PAGE HEADER ─── */
+        /* ─── LEGAL HEADER ─── */
         #legal-header {
             padding: 100px 48px 64px;
             border-bottom: 1px solid var(--border);
@@ -188,9 +179,7 @@
             z-index: 2;
         }
 
-        .legal-header-inner {
-            max-width: 900px;
-        }
+        .legal-header-inner { max-width: 900px; }
 
         .legal-breadcrumb {
             font-family: 'Mulish', sans-serif;
@@ -219,11 +208,7 @@
         }
 
         .legal-breadcrumb a:hover { color: #fff; }
-
-        .legal-breadcrumb .sep {
-            color: var(--dim);
-            font-size: 10px;
-        }
+        .legal-breadcrumb .sep { color: var(--dim); font-size: 10px; }
 
         .legal-title {
             font-family: 'Teko', sans-serif;
@@ -234,12 +219,10 @@
             letter-spacing: 0.01em;
             color: var(--text);
             display: block;
-            margin-bottom: 0;
             position: relative;
             padding-bottom: 28px;
         }
 
-        /* accent underline */
         .legal-title::after {
             content: '';
             position: absolute;
@@ -265,9 +248,7 @@
             color: var(--dim);
         }
 
-        .legal-date span {
-            color: var(--muted);
-        }
+        .legal-date span { color: var(--muted); }
 
         .legal-badge {
             font-family: 'Mulish', sans-serif;
@@ -287,11 +268,73 @@
             z-index: 2;
         }
 
-        .legal-content-inner {
-            max-width: 900px;
+        .legal-content-inner { max-width: 900px; }
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 80px;
+            align-items: start;
         }
 
-        /* intro paragraph above sections */
+        /* TOC SIDEBAR */
+        .legal-toc {
+            position: sticky;
+            top: 100px;
+        }
+
+        .legal-toc-label {
+            font-family: 'Mulish', sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .legal-toc-list a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--dim);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .legal-toc-list a::before {
+            content: '';
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+            flex-shrink: 0;
+        }
+
+        .legal-toc-list a:hover { color: #fff; }
+        .legal-toc-list a:hover::before { width: 12px; }
+
+        .legal-toc-list a.active {
+            color: var(--accent);
+        }
+
+        .legal-toc-list a.active::before {
+            width: 12px;
+        }
+
+        /* INTRO PARAGRAPH */
         .legal-intro {
             font-family: 'Mulish', sans-serif;
             font-size: 15px;
@@ -304,12 +347,9 @@
             margin-bottom: 64px;
         }
 
-        .legal-intro strong {
-            color: #fff;
-            font-weight: 700;
-        }
+        .legal-intro strong { color: #fff; font-weight: 700; }
 
-        /* individual section block */
+        /* SECTION BLOCK */
         .legal-section {
             padding-bottom: 56px;
             border-bottom: 1px solid var(--border);
@@ -338,7 +378,7 @@
             font-weight: 600;
             font-size: clamp(28px, 3.5vw, 44px);
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             line-height: 1;
             color: var(--text);
             margin-bottom: 24px;
@@ -353,16 +393,29 @@
             margin-bottom: 18px;
         }
 
-        .legal-section p:last-child {
-            margin-bottom: 0;
+        .legal-section p:last-child { margin-bottom: 0; }
+
+        .legal-section p strong { color: #fff; font-weight: 700; }
+
+        /* highlight box for important terms */
+        .legal-highlight {
+            border-left: 2px solid var(--accent);
+            padding: 16px 20px;
+            background: rgba(159, 35, 28, 0.05);
+            margin: 20px 0;
         }
 
-        .legal-section p strong {
-            color: #fff;
-            font-weight: 700;
+        .legal-highlight p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 0 !important;
         }
 
-        /* list within legal sections */
+        .legal-highlight p strong { color: #fff; }
+
+        /* list */
         .legal-list {
             list-style: none;
             display: flex;
@@ -375,7 +428,7 @@
             font-family: 'Mulish', sans-serif;
             font-size: 15px;
             color: var(--muted);
-            line-height: 1.7;
+            line-height: 1.75;
             padding-left: 24px;
             position: relative;
         }
@@ -383,13 +436,12 @@
         .legal-list li::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 11px;
+            left: 0; top: 12px;
             width: 10px; height: 1px;
             background: var(--accent);
         }
 
-        /* ─── CONTACT BLOCK ─── */
+        /* CONTACT BLOCK */
         .legal-contact-block {
             margin-top: 72px;
             padding: 48px;
@@ -437,87 +489,9 @@
             transition: color 0.2s, gap 0.3s;
         }
 
-        .legal-contact-email:hover {
-            color: #fff;
-            gap: 16px;
-        }
+        .legal-contact-email:hover { color: #fff; gap: 16px; }
 
-        .legal-contact-email svg {
-            width: 16px; height: 16px;
-            flex-shrink: 0;
-        }
-
-        /* ─── TOC SIDEBAR (optional floating nav) ─── */
-        .legal-layout {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .legal-toc {
-            position: sticky;
-            top: 100px;
-        }
-
-        .legal-toc-label {
-            font-family: 'Mulish', sans-serif;
-            font-size: 9px;
-            font-weight: 800;
-            letter-spacing: 0.3em;
-            text-transform: uppercase;
-            color: var(--dim);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .legal-toc-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .legal-toc-list a {
-            font-family: 'Mulish', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            color: var(--dim);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 0;
-            border-bottom: 1px solid transparent;
-            transition: color 0.2s, border-color 0.2s;
-        }
-
-        .legal-toc-list a::before {
-            content: '';
-            width: 0;
-            height: 1px;
-            background: var(--accent);
-            transition: width 0.3s;
-            flex-shrink: 0;
-        }
-
-        .legal-toc-list a:hover {
-            color: #fff;
-        }
-
-        .legal-toc-list a:hover::before {
-            width: 12px;
-        }
-
-        .legal-toc-list a.active {
-            color: var(--accent);
-        }
-
-        .legal-toc-list a.active::before {
-            width: 12px;
-            background: var(--accent);
-        }
+        .legal-contact-email svg { width: 16px; height: 16px; flex-shrink: 0; }
 
         /* PAGE LOADER */
         .page-loader {
@@ -542,10 +516,7 @@
 
         @keyframes stripOpen { to { transform: translateY(-100%); } }
 
-        section {
-            position: relative;
-            z-index: 2;
-        }
+        section { position: relative; z-index: 2; }
 
         /* ─── FOOTER ─── */
         footer {
@@ -604,11 +575,7 @@
         .footer-links a:hover { color: #fff; }
         .footer-links a:hover::before { opacity: 1; }
 
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
 
         .newsletter-form p {
             font-family: 'Mulish', sans-serif;
@@ -656,11 +623,7 @@
 
         .nl-btn:hover { background: var(--accent-light); }
 
-        .footer-big {
-            padding: 20px 48px 0;
-            overflow: hidden;
-            position: relative;
-        }
+        .footer-big { padding: 20px 48px 0; overflow: hidden; position: relative; }
 
         .footer-big-text {
             font-family: 'Teko', sans-serif;
@@ -722,14 +685,8 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1100px) {
-            .legal-layout {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-
-            .legal-toc {
-                display: none;
-            }
+            .legal-layout { grid-template-columns: 1fr; gap: 0; }
+            .legal-toc { display: none; }
         }
 
         @media (max-width: 900px) {
@@ -757,6 +714,7 @@
             .footer-big { padding: 20px 18px 0; }
             .footer-big-text { font-size: clamp(48px, 16vw, 120px); }
             .legal-contact-block { padding: 28px 20px; }
+            .legal-highlight { padding: 14px 16px; }
         }
     </style>
 </head>
@@ -782,12 +740,12 @@
             DRAGOCODES
         </a>
         <ul class="nav-links">
-            <li><a href="../pages/services.html">Services</a></li>
-            <li><a href="../pages/projects.html">Work</a></li>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/contact.html">Contact</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="projects.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a href="../pages/contact.html" class="nav-cta">Start a project</a>
+        <a href="contact.html" class="nav-cta">Start a project</a>
     </nav>
 
     <!-- ── LEGAL HEADER ── -->
@@ -796,9 +754,9 @@
             <div class="legal-breadcrumb reveal">
                 <a href="/">Home</a>
                 <span class="sep">/</span>
-                Privacy Policy
+                Terms &amp; Conditions
             </div>
-            <span class="legal-title reveal d1">Privacy Policy</span>
+            <span class="legal-title reveal d1">Terms &amp; Conditions</span>
             <div class="legal-meta reveal d2">
                 <span class="legal-date">Last updated: <span>March 2026</span></span>
                 <span class="legal-badge">DRAGOCODES</span>
@@ -809,7 +767,6 @@
     <!-- ── LEGAL CONTENT ── -->
     <section id="legal-content">
         <div class="legal-content-inner">
-
             <div class="legal-layout">
 
                 <!-- TOC SIDEBAR -->
@@ -817,13 +774,13 @@
                     <span class="legal-toc-label">On this page</span>
                     <ul class="legal-toc-list">
                         <li><a href="#intro" class="active">Introduction</a></li>
-                        <li><a href="#collect">Information We Collect</a></li>
-                        <li><a href="#use">How We Use Information</a></li>
-                        <li><a href="#third-party">Third-Party Services</a></li>
-                        <li><a href="#protection">Data Protection</a></li>
-                        <li><a href="#cookies">Cookies</a></li>
-                        <li><a href="#rights">Your Rights</a></li>
-                        <li><a href="#changes">Policy Changes</a></li>
+                        <li><a href="#design">Design Approval</a></li>
+                        <li><a href="#payment">Payment Terms</a></li>
+                        <li><a href="#hosting">Hosting & Domain</a></li>
+                        <li><a href="#support">Post-Launch Support</a></li>
+                        <li><a href="#portfolio">Portfolio Rights</a></li>
+                        <li><a href="#cancellation">Cancellation</a></li>
+                        <li><a href="#liability">Limitation of Liability</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </aside>
@@ -832,108 +789,112 @@
                 <div class="legal-main">
 
                     <p class="legal-intro reveal">
-                        At <strong>DRAGOCODES</strong>, we take privacy seriously. This Privacy Policy explains what information we collect when you visit our website or contact us, how we use that information, and what rights you have in relation to it. By using our website, you agree to the practices described in this document.
+                        These Terms &amp; Conditions govern the working relationship between <strong>DRAGOCODES</strong> and its clients. By commissioning any service — including web development, UI/UX design, brand identity, backend engineering, or any other digital service offered by DRAGOCODES — you agree to be bound by the terms outlined on this page. Please read them carefully before proceeding with any project agreement.
                     </p>
 
-                    <!-- 01 -->
+                    <!-- 01 — INTRODUCTION -->
                     <div class="legal-section reveal" id="intro">
                         <span class="legal-section-num">01</span>
                         <h2 class="legal-section-title">Introduction</h2>
-                        <p>DRAGOCODES is an independent digital engineering studio operated by a solo founder.  Our website is located at <strong>dragocodes.in</strong> and serves as a portfolio and point of contact for prospective clients and collaborators. DRAGOCODES is the data controller for all personal information collected through this website.</p>
-                        <p>This policy applies to all visitors of our website and anyone who contacts us via the forms, email addresses, or other contact channels listed on this site. It does not apply to any third-party websites that may be linked from our pages.</p>
+                        <p>DRAGOCODES is a digital engineering studio providing web development, brand identity, backend engineering, UI/UX design, CRM systems, and AI integration services. These terms apply to all projects and engagements undertaken by DRAGOCODES on behalf of a client.</p>
+                        <p>By signing a project agreement, making a payment, or otherwise instructing DRAGOCODES to commence work, the client confirms that they have read, understood, and agree to these Terms &amp; Conditions in full. These terms constitute the entire agreement between DRAGOCODES and the client unless otherwise stated in a separate written contract.</p>
+                        <p>DRAGOCODES reserves the right to update these terms at any time. The version in effect at the time a project agreement is signed will govern that engagement.</p>
                     </div>
 
-                    <!-- 02 -->
-                    <div class="legal-section reveal" id="collect">
+                    <!-- 02 — DESIGN APPROVAL -->
+                    <div class="legal-section reveal" id="design">
                         <span class="legal-section-num">02</span>
-                        <h2 class="legal-section-title">Information We Collect</h2>
-                        <p>We collect only the information necessary to respond to your enquiry, deliver our services, and improve your experience on our website. This may include:</p>
-                        <ul class="legal-list">
-                            <li><strong>Contact information</strong> — name, email address, and company name when submitted via our contact form or email lead capture.</li>
-                            <li><strong>Project details</strong> — descriptions of your project or requirements when submitted voluntarily through our contact form.</li>
-                            <li><strong>Usage data</strong> — anonymised analytics data such as page views, session duration, and referring URLs, collected through third-party analytics tools.</li>
-                            <li><strong>Technical data</strong> — IP address, browser type, device type, and operating system, collected automatically when you visit our website.</li>
-                        </ul>
-                        <p>We do not collect sensitive personal data such as payment information, national identification numbers, or health data through this website.</p>
+                        <h2 class="legal-section-title">Project Approval &amp; Design Changes</h2>
+                        <p>During the design phase, DRAGOCODES will present <strong>2–3 distinct design concepts</strong> for the client to review. The client is expected to select one concept for approval before development begins.</p>
+                        <div class="legal-highlight">
+                            <p><strong>Once a design concept is formally approved by the client, the overall design direction is considered final.</strong> Development will proceed based on the approved design.</p>
+                        </div>
+                        <p>Any major design changes requested after formal approval — including but not limited to layout restructuring, typographic overhauls, colour system changes, or significant visual redesigns — will be treated as additional scope and may incur extra charges at DRAGOCODES' standard rate.</p>
+                        <p>Clients are strongly encouraged to request all desired design modifications and provide consolidated feedback <strong>before providing formal approval</strong>. Minor copy edits, small text changes, and content updates during development are generally accommodated without additional charge, at DRAGOCODES' discretion.</p>
                     </div>
 
-                    <!-- 03 -->
-                    <div class="legal-section reveal" id="use">
+                    <!-- 03 — PAYMENT TERMS -->
+                    <div class="legal-section reveal" id="payment">
                         <span class="legal-section-num">03</span>
-                        <h2 class="legal-section-title">How We Use Information</h2>
-                        <p>We use the information we collect for the following purposes:</p>
+                        <h2 class="legal-section-title">Payment Terms</h2>
+                        <p>All projects operate on a two-stage payment structure. The following terms apply to all engagements unless otherwise agreed upon in a separate written contract:</p>
                         <ul class="legal-list">
-                            <li>To respond to project enquiries and contact form submissions.</li>
-                            <li>To follow up on leads submitted via our email capture form.</li>
-                            <li>To understand how visitors use our website and improve its content and performance.</li>
-                            <li>To fulfil any contractual obligations where we have entered into a working relationship.</li>
-                            <li>To comply with legal requirements where applicable.</li>
+                            <li><strong>25% deposit</strong> — due before any design or development work begins. This payment confirms the project agreement and secures the client's position in the DRAGOCODES production schedule.</li>
+                            <li><strong>75% final payment</strong> — due in full before the completed website or product is deployed to a live environment and ownership is transferred to the client.</li>
                         </ul>
-                        <p>We do not sell, rent, or trade your personal data to any third party. We will never use your information to send unsolicited marketing communications without your explicit consent.</p>
+                        <div class="legal-highlight">
+                            <p><strong>If the final payment is not completed, the website will not be deployed to a live environment.</strong> Ownership of all design files, source code, and deliverables remains with DRAGOCODES until full payment has been received.</p>
+                        </div>
+                        <p>All invoices are due within the timeframe specified on the invoice. Late payments may delay the project timeline. DRAGOCODES reserves the right to pause active work on a project where payment obligations have not been met.</p>
+                        <p>Payment methods and currency will be agreed upon at the start of each project.</p>
                     </div>
 
-                    <!-- 04 -->
-                    <div class="legal-section reveal" id="third-party">
+                    <!-- 04 — HOSTING & DOMAIN -->
+                    <div class="legal-section reveal" id="hosting">
                         <span class="legal-section-num">04</span>
-                        <h2 class="legal-section-title">Third-Party Services</h2>
-                        <p>Our website uses a small number of third-party services to operate effectively. These services may collect or process data on our behalf:</p>
+                        <h2 class="legal-section-title">Hosting &amp; Domain Responsibility</h2>
+                        <p>DRAGOCODES provides website design, development, and deployment services only. The following are the <strong>sole responsibility of the client</strong> unless explicitly stated otherwise in the project agreement:</p>
                         <ul class="legal-list">
-                            <li><strong>EmailJS</strong> — used to process email submissions from our contact and lead capture forms. Data submitted through these forms is transmitted via EmailJS servers. Please refer to the EmailJS privacy policy for details on how they handle data.</li>
-                            <li><strong>Google Fonts</strong> — used to load typefaces on our website. Google Fonts may collect IP addresses as part of serving font files. Please refer to Google's privacy policy for details.</li>
-                            <li><strong>Analytics services</strong> — we may use privacy-respecting analytics tools to understand aggregate usage patterns. No personally identifiable data is shared with these services.</li>
+                            <li>Domain name registration and renewal fees.</li>
+                            <li>Web hosting costs and ongoing hosting management.</li>
+                            <li>SSL certificates where not included with the hosting provider.</li>
+                            <li>Any third-party service subscriptions required for the project (e.g. CMS licences, email providers, analytics platforms).</li>
                         </ul>
-                        <p>We do not use advertising networks, tracking pixels, or social media trackers on this website.</p>
+                        <p>DRAGOCODES may assist with the technical setup and deployment process — including configuring DNS settings, deploying code to hosting environments, and connecting third-party services — but does not purchase, manage, or hold responsibility for any domains, hosting accounts, or external services on behalf of the client.</p>
+                        <p>Any outages, performance issues, or failures arising from the client's hosting provider or domain registrar are outside the scope of DRAGOCODES' responsibility.</p>
                     </div>
 
-                    <!-- 05 -->
-                    <div class="legal-section reveal" id="protection">
+                    <!-- 05 — POST-LAUNCH SUPPORT -->
+                    <div class="legal-section reveal" id="support">
                         <span class="legal-section-num">05</span>
-                        <h2 class="legal-section-title">Data Protection</h2>
-                        <p>We take reasonable technical and organisational measures to protect your personal data against unauthorised access, disclosure, loss, or destruction. These measures include:</p>
+                        <h2 class="legal-section-title">Post-Launch Support</h2>
+                        <p>Following deployment of the completed project, DRAGOCODES provides <strong>two weeks of post-launch support</strong> at no additional charge. This support period covers:</p>
                         <ul class="legal-list">
-                            <li>Use of HTTPS encryption for all data transmitted between your browser and our website.</li>
-                            <li>Limiting access to personal data to authorised individuals responsible for operating the website and responding to enquiries.</li>
-                            <li>Using reputable third-party service providers with appropriate data protection standards.</li>
+                            <li>Bug fixes and technical errors directly attributable to the DRAGOCODES build.</li>
+                            <li>Corrections to content or functionality that deviate from the approved design or specification.</li>
+                            <li>Minor technical configuration issues arising from the initial deployment.</li>
                         </ul>
-                        <p>While we take reasonable precautions, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security of your data.</p>
-                        <p>We retain personal data only as long as necessary for the purposes described in this policy, or as required by applicable law.</p>
+                        <div class="legal-highlight">
+                            <p>The post-launch support period does <strong>not</strong> cover new feature requests, design changes, content updates, or additional modifications beyond the original project scope. These will be quoted and treated as a new or separate engagement.</p>
+                        </div>
+                        <p>After the two-week support window has closed, all ongoing maintenance, updates, and support are subject to DRAGOCODES' standard hourly or retainer rates. Clients who require ongoing support are encouraged to discuss a dedicated maintenance agreement at the start of the project.</p>
                     </div>
 
-                    <!-- 06 -->
-                    <div class="legal-section reveal" id="cookies">
+                    <!-- 06 — PORTFOLIO RIGHTS -->
+                    <div class="legal-section reveal" id="portfolio">
                         <span class="legal-section-num">06</span>
-                        <h2 class="legal-section-title">Cookies</h2>
-                        <p>Our website may use cookies and similar technologies to enhance your browsing experience. Cookies are small text files stored on your device that help us understand how you interact with our site.</p>
-                        <p>We use the following categories of cookies:</p>
-                        <ul class="legal-list">
-                            <li><strong>Strictly necessary cookies</strong> — required for the website to function correctly. These cannot be disabled.</li>
-                            <li><strong>Analytics cookies</strong> — used to collect anonymised usage data that helps us improve our website. These are only placed if you consent.</li>
-                        </ul>
-                        <p>You can control and manage cookies through your browser settings. Disabling certain cookies may affect the functionality of the website. For more information about how cookies are used on this website, please refer to our <a href="cookie-policy.html" class="cookie-l">Cookie Policy</a>.</p>
+                        <h2 class="legal-section-title">Portfolio Rights</h2>
+                        <p>DRAGOCODES reserves the right to display work completed for clients — including screenshots, live previews, design mockups, and case study content — in its online portfolio, website, social media channels, and marketing materials.</p>
+                        <p>If a client requires that their project remain confidential and not be displayed publicly, this must be formally requested in writing and agreed upon before or during the project agreement. Any such confidentiality arrangement must be explicitly documented in the project contract.</p>
+                        <p>DRAGOCODES will always respect legitimate confidentiality requests and will not disclose sensitive business information when presenting portfolio work.</p>
                     </div>
 
-                    <!-- 07 -->
-                    <div class="legal-section reveal" id="rights">
+                    <!-- 07 — CANCELLATION -->
+                    <div class="legal-section reveal" id="cancellation">
                         <span class="legal-section-num">07</span>
-                        <h2 class="legal-section-title">Your Rights</h2>
-                        <p>Depending on your location and applicable law, you may have the following rights regarding your personal data:</p>
-                        <ul class="legal-list">
-                            <li><strong>Right of access</strong> — to request a copy of the personal data we hold about you.</li>
-                            <li><strong>Right to rectification</strong> — to request correction of inaccurate or incomplete data.</li>
-                            <li><strong>Right to erasure</strong> — to request deletion of your personal data, subject to certain exceptions.</li>
-                            <li><strong>Right to restriction</strong> — to request that we limit how we use your data.</li>
-                            <li><strong>Right to object</strong> — to object to our processing of your data in certain circumstances.</li>
-                            <li><strong>Right to data portability</strong> — to receive your data in a structured, machine-readable format.</li>
-                        </ul>
-                        <p>To exercise any of these rights, please contact us at the email address listed below. We will respond to all legitimate requests within 30 days.</p>
+                        <h2 class="legal-section-title">Project Cancellation</h2>
+                        <p>Once a project agreement has been signed and the initial deposit payment has been received, the project is formally in progress. DRAGOCODES allocates time, resources, and team capacity based on confirmed engagements.</p>
+                        <div class="legal-highlight">
+                            <p><strong>Projects cannot be cancelled midway once work has commenced.</strong> If a client chooses to withdraw from the project after work has begun, all payments made up to that point are non-refundable.</p>
+                        </div>
+                        <p>This policy reflects the time, planning, and resources that DRAGOCODES commits from the moment a project is confirmed. In the event of exceptional circumstances, DRAGOCODES may — at its sole discretion — agree to an alternative arrangement, but this is not guaranteed and must be agreed upon in writing.</p>
+                        <p>DRAGOCODES also reserves the right to terminate an engagement if a client fails to provide necessary feedback, assets, or payments within a reasonable timeframe, or acts in a manner that makes the continuation of the project untenable. In such cases, all payments received will be retained by DRAGOCODES to cover work completed.</p>
                     </div>
 
-                    <!-- 08 -->
-                    <div class="legal-section reveal" id="changes">
+                    <!-- 08 — LIMITATION OF LIABILITY -->
+                    <div class="legal-section reveal" id="liability">
                         <span class="legal-section-num">08</span>
-                        <h2 class="legal-section-title">Policy Changes</h2>
-                        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or the services we use. When we make material changes, we will update the "Last updated" date at the top of this page.</p>
-                        <p>We encourage you to review this policy periodically to stay informed about how we are protecting your information. Continued use of our website following any changes constitutes your acceptance of the updated policy.</p>
+                        <h2 class="legal-section-title">Limitation of Liability</h2>
+                        <p>DRAGOCODES delivers its services with diligence, expertise, and care. However, the agency's liability is limited to the direct services it provides. DRAGOCODES is not responsible for losses, damages, or failures arising from:</p>
+                        <ul class="legal-list">
+                            <li>Third-party service failures, outages, or changes to APIs and integrations outside DRAGOCODES' control.</li>
+                            <li>Hosting provider issues, server downtime, or infrastructure failures.</li>
+                            <li>Domain registrar problems, expired domain names, or DNS propagation delays.</li>
+                            <li>External software, plugins, or platforms that are not part of the DRAGOCODES build.</li>
+                            <li>Client-side errors, incorrect content provided by the client, or actions taken by the client after delivery.</li>
+                            <li>Security vulnerabilities introduced by third-party systems or the client's hosting environment.</li>
+                        </ul>
+                        <p>In no event shall DRAGOCODES' total liability to a client exceed the total amount paid by that client for the specific project to which the claim relates. DRAGOCODES shall not be liable for any indirect, consequential, special, or punitive damages of any kind.</p>
                     </div>
 
                     <!-- CONTACT BLOCK -->
@@ -941,7 +902,7 @@
                         <span class="legal-section-num">09</span>
                         <div class="legal-contact-title">Contact</div>
                         <p class="legal-contact-body">
-                            If you have questions, concerns, or requests relating to this Privacy Policy or how we handle your personal data, please reach out directly. We are committed to addressing all enquiries promptly and transparently.
+                            If you have questions, concerns, or requests related to these Terms &amp; Conditions — or wish to discuss a specific clause before commencing a project — please reach out directly. We are committed to clear, transparent communication at every stage of the working relationship.
                         </p>
                         <a href="mailto:dragocodes@gmail.com" class="legal-contact-email">
                             dragocodes@gmail.com
@@ -962,19 +923,19 @@
             <div>
                 <span class="footer-col-title">Navigation</span>
                 <ul class="footer-links">
-                    <li><a href="../pages/services.html">Services</a></li>
-                    <li><a href="../pages/projects.html">Work</a></li>
-                    <li><a href="../pages/about.html">About</a></li>
-                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Work</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <span class="footer-col-title">Contact</span>
                 <ul class="footer-links">
                     <li><a href="mailto:dragocodes@gmail.com">dragocodes@gmail.com</a></li>
-                    <li><a href="https://github.com/dragocodes">GitHub</a></li>
+                    <li><a href="https://github.com/HarshDev0">GitHub</a></li>
                     <li><a href="https://instagram.com/dragocodes">Instagram</a></li>
-                    <li><a href="https://X.com/dragocodes">Twitter / X</a></li>
+                    <li><a href="https://x.com/Dragocode">Twitter / X</a></li>
                 </ul>
             </div>
             <div>
@@ -999,7 +960,7 @@
             <span class="footer-copy">© 2026 <span>DRAGOCODES</span>. All rights reserved.</span>
             <div class="footer-legal">
                 <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
+                <a href="terms.html">Terms &amp; Conditions</a>
                 <a href="cookie-policy.html">Cookies</a>
             </div>
         </div>
@@ -1008,11 +969,11 @@
     <script>
         // Cursor
         const cursor = document.getElementById('cursor');
-        const trail = document.getElementById('cursorTrail');
+        const trail  = document.getElementById('cursorTrail');
         document.addEventListener('mousemove', e => {
             const mx = e.clientX, my = e.clientY;
-            cursor.style.left = mx - 6 + 'px';
-            cursor.style.top  = my - 6 + 'px';
+            cursor.style.left = mx - 6  + 'px';
+            cursor.style.top  = my - 6  + 'px';
             setTimeout(() => {
                 trail.style.left = mx - 18 + 'px';
                 trail.style.top  = my - 18 + 'px';
@@ -1027,7 +988,7 @@
 
         // Scroll reveal
         const revealEls = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver(entries => {
+        const observer  = new IntersectionObserver(entries => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
                     e.target.classList.add('visible');
@@ -1042,7 +1003,7 @@
             setTimeout(() => el.classList.add('visible'), 300);
         });
 
-        // Magnetic buttons
+        // Magnetic nav CTA
         document.querySelectorAll('.nav-cta').forEach(btn => {
             btn.addEventListener('mousemove', e => {
                 const r = btn.getBoundingClientRect();
@@ -1083,7 +1044,7 @@
 
         document.getElementById('newsletterForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const btn = this.querySelector('.nl-btn');
+            const btn   = this.querySelector('.nl-btn');
             const email = document.getElementById('leadEmail').value;
             btn.textContent = 'Sending...';
             emailjs.send('service_818p4k3', 'template_2a8g5s8', { email }).then(() => {
