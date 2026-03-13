@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Privacy Policy — DRAGOCODES</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Mulish:wght@300;400;500;600;700;800;900&family=Text+Me+One&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --accent: #9f231c;
+            --accent-light: #c4352d;
+            --bg: #0e0e0e;
+            --text: #ffffff;
+            --muted: #d6d6d6;
+            --dim: #6b6b6b;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Mulish', sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* FAVICON */
+        .icon {
+            width: 26px;
+            height: 26px;
+            stroke: white;
+        }
+
+        /* CUSTOM CURSOR */
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, opacity 0.2s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-trail {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(159, 35, 28, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            mix-blend-mode: difference;
+        }
+
+        body:hover .cursor { opacity: 1; }
+
+        /* NOISE OVERLAY */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9990;
+            opacity: 0.35;
+        }
+
+        img, svg { max-width: 100%; height: auto; }
+
+        /* ─── NAV ─── */
+        nav {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            z-index: 2000;
+            padding: 22px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            border-bottom: none;
+            transition: background 0.35s ease, backdrop-filter 0.35s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(14, 14, 14, 0.92);
+            backdrop-filter: blur(12px);
+            border-color: var(--border);
+        }
+
+        .logo {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            gap: 2px;
+        }
+
+        .logo .bracket { color: var(--accent); }
+        .logo .d-letter { color: #ffffff; }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 22px;
+            border: 1px solid var(--accent);
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .nav-cta:hover { background: var(--accent); }
+
+        .cookie-l{
+            color: var(--accent);
+        }
+
+        .cookie-l:hover{
+            color: #8d0000;
+            transition: color 0.2s;
+        }
+
+        /* ─── LEGAL PAGE HEADER ─── */
+        #legal-header {
+            padding: 100px 48px 64px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-header-inner {
+            max-width: 900px;
+        }
+
+        .legal-breadcrumb {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .legal-breadcrumb::before {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: var(--accent);
+        }
+
+        .legal-breadcrumb a {
+            color: var(--dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .legal-breadcrumb a:hover { color: #fff; }
+
+        .legal-breadcrumb .sep {
+            color: var(--dim);
+            font-size: 10px;
+        }
+
+        .legal-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+            font-size: clamp(52px, 7vw, 96px);
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0;
+            position: relative;
+            padding-bottom: 28px;
+        }
+
+        /* accent underline */
+        .legal-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 56px; height: 2px;
+            background: var(--accent);
+        }
+
+        .legal-meta {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .legal-date {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        .legal-date span {
+            color: var(--muted);
+        }
+
+        .legal-badge {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(159, 35, 28, 0.35);
+            padding: 5px 12px;
+        }
+
+        /* ─── LEGAL CONTENT ─── */
+        #legal-content {
+            padding: 80px 48px 120px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-content-inner {
+            max-width: 900px;
+        }
+
+        /* intro paragraph above sections */
+        .legal-intro {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.85;
+            max-width: 700px;
+            padding-bottom: 64px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 64px;
+        }
+
+        .legal-intro strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* individual section block */
+        .legal-section {
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 56px;
+        }
+
+        .legal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .legal-section-num {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .legal-section-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+            font-size: clamp(28px, 3.5vw, 44px);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .legal-section p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+
+        .legal-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section p strong {
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* list within legal sections */
+        .legal-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .legal-list li {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.7;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .legal-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 11px;
+            width: 10px; height: 1px;
+            background: var(--accent);
+        }
+
+        /* ─── CONTACT BLOCK ─── */
+        .legal-contact-block {
+            margin-top: 72px;
+            padding: 48px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legal-contact-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--accent);
+        }
+
+        .legal-contact-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .legal-contact-body {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .legal-contact-email {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s, gap 0.3s;
+        }
+
+        .legal-contact-email:hover {
+            color: #fff;
+            gap: 16px;
+        }
+
+        .legal-contact-email svg {
+            width: 16px; height: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ─── TOC SIDEBAR (optional floating nav) ─── */
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .legal-toc {
+            position: sticky;
+            top: 100px;
+        }
+
+        .legal-toc-label {
+            font-family: 'Mulish', sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .legal-toc-list a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--dim);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .legal-toc-list a::before {
+            content: '';
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+            flex-shrink: 0;
+        }
+
+        .legal-toc-list a:hover {
+            color: #fff;
+        }
+
+        .legal-toc-list a:hover::before {
+            width: 12px;
+        }
+
+        .legal-toc-list a.active {
+            color: var(--accent);
+        }
+
+        .legal-toc-list a.active::before {
+            width: 12px;
+            background: var(--accent);
+        }
+
+        /* PAGE LOADER */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            pointer-events: none;
+        }
+
+        .loader-strip {
+            flex: 1;
+            background: #8d0000;
+            transform: translateY(0);
+            animation: stripOpen 1.2s cubic-bezier(.77, 0, .18, 1) forwards;
+        }
+
+        .loader-strip:nth-child(2) { animation-delay: .1s }
+        .loader-strip:nth-child(3) { animation-delay: .2s }
+        .loader-strip:nth-child(4) { animation-delay: .3s }
+        .loader-strip:nth-child(5) { animation-delay: .4s }
+
+        @keyframes stripOpen { to { transform: translateY(-100%); } }
+
+        section {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #080808;
+            border-top: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-top {
+            padding: 80px 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .footer-col-title {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a::before {
+            content: '';
+            width: 16px; height: 1px;
+            background: var(--accent);
+            flex-shrink: 0;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover { color: #fff; }
+        .footer-links a:hover::before { opacity: 1; }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .newsletter-form p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .nl-input-wrap {
+            display: flex;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .nl-input-wrap:focus-within { border-color: var(--accent); }
+
+        .nl-input-wrap input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 14px 18px;
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .nl-input-wrap input::placeholder { color: var(--dim); }
+
+        .nl-btn {
+            background: var(--accent);
+            border: none;
+            padding: 14px 20px;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: background 0.25s;
+        }
+
+        .nl-btn:hover { background: var(--accent-light); }
+
+        .footer-big {
+            padding: 20px 48px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .footer-big-text {
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+            font-size: clamp(60px, 12vw, 220px);
+            text-transform: uppercase;
+            line-height: 0.82;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+            white-space: nowrap;
+            display: block;
+            letter-spacing: -0.02em;
+            user-select: none;
+        }
+
+        .footer-bottom {
+            padding: 24px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-copy {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 0.12em;
+        }
+
+        .footer-copy span { color: var(--accent); }
+
+        .footer-legal { display: flex; gap: 28px; }
+
+        .footer-legal a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--dim);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-legal a:hover { color: #fff; }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible { opacity: 1; transform: none; }
+
+        .d1 { transition-delay: 0.05s; }
+        .d2 { transition-delay: 0.12s; }
+        .d3 { transition-delay: 0.18s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1100px) {
+            .legal-layout {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .legal-toc {
+                display: none;
+            }
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 18px 24px; }
+            .nav-links { display: none; }
+            #legal-header { padding: 80px 24px 52px; }
+            #legal-content { padding: 60px 24px 100px; }
+            .footer-top { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .legal-contact-block { padding: 36px 28px; }
+        }
+
+        @media (max-width: 600px) {
+            body { cursor: auto; }
+            .cursor, .cursor-trail { display: none; }
+            nav { padding: 16px 18px; }
+            .logo { font-size: 13px; }
+            .nav-cta { padding: 8px 16px; font-size: 10px; }
+            #legal-header { padding: 64px 18px 44px; }
+            #legal-content { padding: 48px 18px 80px; }
+            .legal-title { font-size: clamp(36px, 12vw, 60px); }
+            .legal-section-title { font-size: clamp(22px, 7vw, 34px); }
+            .footer-top { padding: 60px 18px 30px; }
+            .footer-bottom { padding: 20px 18px; }
+            .footer-big { padding: 20px 18px 0; }
+            .footer-big-text { font-size: clamp(48px, 16vw, 120px); }
+            .legal-contact-block { padding: 28px 20px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="loader">
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span><span class="d-letter">D</span><span class="bracket">/&gt;</span>&nbsp;
+            DRAGOCODES
+        </a>
+        <ul class="nav-links">
+            <li><a href="../pages/services.html">Services</a></li>
+            <li><a href="../pages/projects.html">Work</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+        <a href="../pages/contact.html" class="nav-cta">Start a project</a>
+    </nav>
+
+    <!-- ── LEGAL HEADER ── -->
+    <section id="legal-header">
+        <div class="legal-header-inner">
+            <div class="legal-breadcrumb reveal">
+                <a href="/">Home</a>
+                <span class="sep">/</span>
+                Privacy Policy
+            </div>
+            <span class="legal-title reveal d1">Privacy Policy</span>
+            <div class="legal-meta reveal d2">
+                <span class="legal-date">Last updated: <span>March 2026</span></span>
+                <span class="legal-badge">DRAGOCODES</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── LEGAL CONTENT ── -->
+    <section id="legal-content">
+        <div class="legal-content-inner">
+
+            <div class="legal-layout">
+
+                <!-- TOC SIDEBAR -->
+                <aside class="legal-toc">
+                    <span class="legal-toc-label">On this page</span>
+                    <ul class="legal-toc-list">
+                        <li><a href="#intro" class="active">Introduction</a></li>
+                        <li><a href="#collect">Information We Collect</a></li>
+                        <li><a href="#use">How We Use Information</a></li>
+                        <li><a href="#third-party">Third-Party Services</a></li>
+                        <li><a href="#protection">Data Protection</a></li>
+                        <li><a href="#cookies">Cookies</a></li>
+                        <li><a href="#rights">Your Rights</a></li>
+                        <li><a href="#changes">Policy Changes</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <div class="legal-main">
+
+                    <p class="legal-intro reveal">
+                        At <strong>DRAGOCODES</strong>, we take privacy seriously. This Privacy Policy explains what information we collect when you visit our website or contact us, how we use that information, and what rights you have in relation to it. By using our website, you agree to the practices described in this document.
+                    </p>
+
+                    <!-- 01 -->
+                    <div class="legal-section reveal" id="intro">
+                        <span class="legal-section-num">01</span>
+                        <h2 class="legal-section-title">Introduction</h2>
+                        <p>DRAGOCODES is an independent digital engineering studio operated by a solo founder.  Our website is located at <strong>dragocodes.in</strong> and serves as a portfolio and point of contact for prospective clients and collaborators. DRAGOCODES is the data controller for all personal information collected through this website.</p>
+                        <p>This policy applies to all visitors of our website and anyone who contacts us via the forms, email addresses, or other contact channels listed on this site. It does not apply to any third-party websites that may be linked from our pages.</p>
+                    </div>
+
+                    <!-- 02 -->
+                    <div class="legal-section reveal" id="collect">
+                        <span class="legal-section-num">02</span>
+                        <h2 class="legal-section-title">Information We Collect</h2>
+                        <p>We collect only the information necessary to respond to your enquiry, deliver our services, and improve your experience on our website. This may include:</p>
+                        <ul class="legal-list">
+                            <li><strong>Contact information</strong> — name, email address, and company name when submitted via our contact form or email lead capture.</li>
+                            <li><strong>Project details</strong> — descriptions of your project or requirements when submitted voluntarily through our contact form.</li>
+                            <li><strong>Usage data</strong> — anonymised analytics data such as page views, session duration, and referring URLs, collected through third-party analytics tools.</li>
+                            <li><strong>Technical data</strong> — IP address, browser type, device type, and operating system, collected automatically when you visit our website.</li>
+                        </ul>
+                        <p>We do not collect sensitive personal data such as payment information, national identification numbers, or health data through this website.</p>
+                    </div>
+
+                    <!-- 03 -->
+                    <div class="legal-section reveal" id="use">
+                        <span class="legal-section-num">03</span>
+                        <h2 class="legal-section-title">How We Use Information</h2>
+                        <p>We use the information we collect for the following purposes:</p>
+                        <ul class="legal-list">
+                            <li>To respond to project enquiries and contact form submissions.</li>
+                            <li>To follow up on leads submitted via our email capture form.</li>
+                            <li>To understand how visitors use our website and improve its content and performance.</li>
+                            <li>To fulfil any contractual obligations where we have entered into a working relationship.</li>
+                            <li>To comply with legal requirements where applicable.</li>
+                        </ul>
+                        <p>We do not sell, rent, or trade your personal data to any third party. We will never use your information to send unsolicited marketing communications without your explicit consent.</p>
+                    </div>
+
+                    <!-- 04 -->
+                    <div class="legal-section reveal" id="third-party">
+                        <span class="legal-section-num">04</span>
+                        <h2 class="legal-section-title">Third-Party Services</h2>
+                        <p>Our website uses a small number of third-party services to operate effectively. These services may collect or process data on our behalf:</p>
+                        <ul class="legal-list">
+                            <li><strong>EmailJS</strong> — used to process email submissions from our contact and lead capture forms. Data submitted through these forms is transmitted via EmailJS servers. Please refer to the EmailJS privacy policy for details on how they handle data.</li>
+                            <li><strong>Google Fonts</strong> — used to load typefaces on our website. Google Fonts may collect IP addresses as part of serving font files. Please refer to Google's privacy policy for details.</li>
+                            <li><strong>Analytics services</strong> — we may use privacy-respecting analytics tools to understand aggregate usage patterns. No personally identifiable data is shared with these services.</li>
+                        </ul>
+                        <p>We do not use advertising networks, tracking pixels, or social media trackers on this website.</p>
+                    </div>
+
+                    <!-- 05 -->
+                    <div class="legal-section reveal" id="protection">
+                        <span class="legal-section-num">05</span>
+                        <h2 class="legal-section-title">Data Protection</h2>
+                        <p>We take reasonable technical and organisational measures to protect your personal data against unauthorised access, disclosure, loss, or destruction. These measures include:</p>
+                        <ul class="legal-list">
+                            <li>Use of HTTPS encryption for all data transmitted between your browser and our website.</li>
+                            <li>Limiting access to personal data to authorised individuals responsible for operating the website and responding to enquiries.</li>
+                            <li>Using reputable third-party service providers with appropriate data protection standards.</li>
+                        </ul>
+                        <p>While we take reasonable precautions, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security of your data.</p>
+                        <p>We retain personal data only as long as necessary for the purposes described in this policy, or as required by applicable law.</p>
+                    </div>
+
+                    <!-- 06 -->
+                    <div class="legal-section reveal" id="cookies">
+                        <span class="legal-section-num">06</span>
+                        <h2 class="legal-section-title">Cookies</h2>
+                        <p>Our website may use cookies and similar technologies to enhance your browsing experience. Cookies are small text files stored on your device that help us understand how you interact with our site.</p>
+                        <p>We use the following categories of cookies:</p>
+                        <ul class="legal-list">
+                            <li><strong>Strictly necessary cookies</strong> — required for the website to function correctly. These cannot be disabled.</li>
+                            <li><strong>Analytics cookies</strong> — used to collect anonymised usage data that helps us improve our website. These are only placed if you consent.</li>
+                        </ul>
+                        <p>You can control and manage cookies through your browser settings. Disabling certain cookies may affect the functionality of the website. For more information about how cookies are used on this website, please refer to our <a href="cookie-policy.html" class="cookie-l">Cookie Policy</a>.</p>
+                    </div>
+
+                    <!-- 07 -->
+                    <div class="legal-section reveal" id="rights">
+                        <span class="legal-section-num">07</span>
+                        <h2 class="legal-section-title">Your Rights</h2>
+                        <p>Depending on your location and applicable law, you may have the following rights regarding your personal data:</p>
+                        <ul class="legal-list">
+                            <li><strong>Right of access</strong> — to request a copy of the personal data we hold about you.</li>
+                            <li><strong>Right to rectification</strong> — to request correction of inaccurate or incomplete data.</li>
+                            <li><strong>Right to erasure</strong> — to request deletion of your personal data, subject to certain exceptions.</li>
+                            <li><strong>Right to restriction</strong> — to request that we limit how we use your data.</li>
+                            <li><strong>Right to object</strong> — to object to our processing of your data in certain circumstances.</li>
+                            <li><strong>Right to data portability</strong> — to receive your data in a structured, machine-readable format.</li>
+                        </ul>
+                        <p>To exercise any of these rights, please contact us at the email address listed below. We will respond to all legitimate requests within 30 days.</p>
+                    </div>
+
+                    <!-- 08 -->
+                    <div class="legal-section reveal" id="changes">
+                        <span class="legal-section-num">08</span>
+                        <h2 class="legal-section-title">Policy Changes</h2>
+                        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or the services we use. When we make material changes, we will update the "Last updated" date at the top of this page.</p>
+                        <p>We encourage you to review this policy periodically to stay informed about how we are protecting your information. Continued use of our website following any changes constitutes your acceptance of the updated policy.</p>
+                    </div>
+
+                    <!-- CONTACT BLOCK -->
+                    <div class="legal-contact-block reveal" id="contact">
+                        <span class="legal-section-num">09</span>
+                        <div class="legal-contact-title">Contact</div>
+                        <p class="legal-contact-body">
+                            If you have questions, concerns, or requests relating to this Privacy Policy or how we handle your personal data, please reach out directly. We are committed to addressing all enquiries promptly and transparently.
+                        </p>
+                        <a href="mailto:dragocodes@gmail.com" class="legal-contact-email">
+                            dragocodes@gmail.com
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-top">
+            <div>
+                <span class="footer-col-title">Navigation</span>
+                <ul class="footer-links">
+                    <li><a href="../pages/services.html">Services</a></li>
+                    <li><a href="../pages/projects.html">Work</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-col-title">Contact</span>
+                <ul class="footer-links">
+                    <li><a href="mailto:dragocodes@gmail.com">dragocodes@gmail.com</a></li>
+                    <li><a href="https://github.com/dragocodes">GitHub</a></li>
+                    <li><a href="https://instagram.com/dragocodes">Instagram</a></li>
+                    <li><a href="https://X.com/dragocodes">Twitter / X</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-col-title">Have a Project in Mind?</span>
+                <form id="newsletterForm">
+                    <div class="newsletter-form">
+                        <p>Drop your email and we'll reach out.</p>
+                        <div class="nl-input-wrap">
+                            <input type="email" id="leadEmail" placeholder="Enter your email" required>
+                            <button type="submit" class="nl-btn">→</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-big">
+            <span class="footer-big-text">DRAGOCODES</span>
+        </div>
+
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2026 <span>DRAGOCODES</span>. All rights reserved.</span>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="cookie-policy.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cursor
+        const cursor = document.getElementById('cursor');
+        const trail = document.getElementById('cursorTrail');
+        document.addEventListener('mousemove', e => {
+            const mx = e.clientX, my = e.clientY;
+            cursor.style.left = mx - 6 + 'px';
+            cursor.style.top  = my - 6 + 'px';
+            setTimeout(() => {
+                trail.style.left = mx - 18 + 'px';
+                trail.style.top  = my - 18 + 'px';
+            }, 80);
+        });
+
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Trigger header reveals on load
+        document.querySelectorAll('#legal-header .reveal').forEach(el => {
+            setTimeout(() => el.classList.add('visible'), 300);
+        });
+
+        // Magnetic buttons
+        document.querySelectorAll('.nav-cta').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                btn.style.transform = `translate(${(e.clientX - r.left - r.width/2) * 0.25}px, ${(e.clientY - r.top - r.height/2) * 0.25}px)`;
+            });
+            btn.addEventListener('mouseleave', () => btn.style.transform = 'translate(0,0)');
+        });
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const l = document.getElementById('loader');
+                if (l) l.style.display = 'none';
+            }, 1400);
+        });
+
+        // TOC active state on scroll
+        const sections = document.querySelectorAll('.legal-section, .legal-contact-block');
+        const tocLinks  = document.querySelectorAll('.legal-toc-list a');
+
+        const tocObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { threshold: 0.4, rootMargin: '-80px 0px -60% 0px' });
+
+        sections.forEach(s => tocObserver.observe(s));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () { emailjs.init("2d5hFZGn7vjt4caYf"); })();
+
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = this.querySelector('.nl-btn');
+            const email = document.getElementById('leadEmail').value;
+            btn.textContent = 'Sending...';
+            emailjs.send('service_818p4k3', 'template_2a8g5s8', { email }).then(() => {
+                btn.textContent = '✓';
+                document.getElementById('leadEmail').value = '';
+                setTimeout(() => { btn.textContent = '→'; }, 3000);
+            }, err => {
+                console.log(err);
+                btn.textContent = 'Error';
+            });
+        });
+    </script>
+
+</body>
+</html>

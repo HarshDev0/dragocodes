@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Cookie Policy — DRAGOCODES</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Mulish:wght@300;400;500;600;700;800;900&family=Text+Me+One&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --accent: #9f231c;
+            --accent-light: #c4352d;
+            --bg: #0e0e0e;
+            --text: #ffffff;
+            --muted: #d6d6d6;
+            --dim: #6b6b6b;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Mulish', sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* FAVICON */
+        .icon {
+            width: 26px;
+            height: 26px;
+            stroke: white;
+        }
+
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, opacity 0.2s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-trail {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(159, 35, 28, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            mix-blend-mode: difference;
+        }
+
+        body:hover .cursor { opacity: 1; }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9990;
+            opacity: 0.35;
+        }
+
+        img, svg { max-width: 100%; height: auto; }
+
+        /* ─── NAV ─── */
+        nav {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            z-index: 2000;
+            padding: 22px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            border-bottom: none;
+            transition: background 0.35s ease, backdrop-filter 0.35s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(14, 14, 14, 0.92);
+            backdrop-filter: blur(12px);
+            border-color: var(--border);
+        }
+
+        .logo {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            gap: 2px;
+        }
+
+        .logo .bracket { color: var(--accent); }
+        .logo .d-letter { color: #ffffff; }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 22px;
+            border: 1px solid var(--accent);
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .nav-cta:hover { background: var(--accent); }
+
+        /* ─── LEGAL HEADER ─── */
+        #legal-header {
+            padding: 100px 48px 64px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-header-inner { max-width: 900px; }
+
+        .legal-breadcrumb {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .legal-breadcrumb::before {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: var(--accent);
+        }
+
+        .legal-breadcrumb a {
+            color: var(--dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .legal-breadcrumb a:hover { color: #fff; }
+        .legal-breadcrumb .sep { color: var(--dim); font-size: 10px; }
+
+        .legal-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+            font-size: clamp(52px, 7vw, 96px);
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            display: block;
+            position: relative;
+            padding-bottom: 28px;
+        }
+
+        .legal-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 56px; height: 2px;
+            background: var(--accent);
+        }
+
+        .legal-meta {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .legal-date {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        .legal-date span { color: var(--muted); }
+
+        .legal-badge {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(159, 35, 28, 0.35);
+            padding: 5px 12px;
+        }
+
+        /* ─── LEGAL CONTENT ─── */
+        #legal-content {
+            padding: 80px 48px 120px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-content-inner { max-width: 900px; }
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* TOC */
+        .legal-toc {
+            position: sticky;
+            top: 100px;
+        }
+
+        .legal-toc-label {
+            font-family: 'Mulish', sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .legal-toc-list a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--dim);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .legal-toc-list a::before {
+            content: '';
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+            flex-shrink: 0;
+        }
+
+        .legal-toc-list a:hover { color: #fff; }
+        .legal-toc-list a:hover::before { width: 12px; }
+        .legal-toc-list a.active { color: var(--accent); }
+        .legal-toc-list a.active::before { width: 12px; }
+
+        /* INTRO */
+        .legal-intro {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.85;
+            max-width: 700px;
+            padding-bottom: 64px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 64px;
+        }
+
+        .legal-intro strong { color: #fff; font-weight: 700; }
+
+        /* SECTION */
+        .legal-section {
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 56px;
+        }
+
+        .legal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .legal-section-num {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .legal-section-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+            font-size: clamp(28px, 3.5vw, 44px);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .legal-section p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+
+        .legal-section p:last-child { margin-bottom: 0; }
+        .legal-section p strong { color: #fff; font-weight: 700; }
+
+        .legal-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .legal-list li {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.75;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .legal-list li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 12px;
+            width: 10px; height: 1px;
+            background: var(--accent);
+        }
+
+        .legal-highlight {
+            border-left: 2px solid var(--accent);
+            padding: 16px 20px;
+            background: rgba(159, 35, 28, 0.05);
+            margin: 20px 0;
+        }
+
+        .legal-highlight p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 0 !important;
+        }
+
+        .legal-highlight p strong { color: #fff; }
+
+        /* browser table */
+        .browser-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .browser-table thead tr {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .browser-table th {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--dim);
+            text-align: left;
+            padding: 0 0 12px;
+        }
+
+        .browser-table th:last-child { text-align: right; }
+
+        .browser-table td {
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+            padding: 14px 0;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.6;
+        }
+
+        .browser-table td:first-child { font-weight: 700; color: #fff; width: 140px; }
+        .browser-table td:last-child { text-align: right; }
+
+        .browser-table a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .browser-table a:hover { color: #fff; }
+
+        .browser-table tr:last-child td { border-bottom: none; }
+
+        /* CONTACT BLOCK */
+        .legal-contact-block {
+            margin-top: 72px;
+            padding: 48px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legal-contact-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--accent);
+        }
+
+        .legal-contact-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .legal-contact-body {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .legal-contact-email {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s, gap 0.3s;
+        }
+
+        .legal-contact-email:hover { color: #fff; gap: 16px; }
+        .legal-contact-email svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+        /* PAGE LOADER */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            pointer-events: none;
+        }
+
+        .loader-strip {
+            flex: 1;
+            background: #8d0000;
+            transform: translateY(0);
+            animation: stripOpen 1.2s cubic-bezier(.77, 0, .18, 1) forwards;
+        }
+
+        .loader-strip:nth-child(2) { animation-delay: .1s }
+        .loader-strip:nth-child(3) { animation-delay: .2s }
+        .loader-strip:nth-child(4) { animation-delay: .3s }
+        .loader-strip:nth-child(5) { animation-delay: .4s }
+
+        @keyframes stripOpen { to { transform: translateY(-100%); } }
+
+        section { position: relative; z-index: 2; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #080808;
+            border-top: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-top {
+            padding: 80px 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .footer-col-title {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a::before {
+            content: '';
+            width: 16px; height: 1px;
+            background: var(--accent);
+            flex-shrink: 0;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover { color: #fff; }
+        .footer-links a:hover::before { opacity: 1; }
+
+        .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
+
+        .newsletter-form p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .nl-input-wrap {
+            display: flex;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .nl-input-wrap:focus-within { border-color: var(--accent); }
+
+        .nl-input-wrap input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 14px 18px;
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .nl-input-wrap input::placeholder { color: var(--dim); }
+
+        .nl-btn {
+            background: var(--accent);
+            border: none;
+            padding: 14px 20px;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: background 0.25s;
+        }
+
+        .nl-btn:hover { background: var(--accent-light); }
+
+        .footer-big { padding: 20px 48px 0; overflow: hidden; }
+
+        .footer-big-text {
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+            font-size: clamp(60px, 12vw, 220px);
+            text-transform: uppercase;
+            line-height: 0.82;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+            white-space: nowrap;
+            display: block;
+            letter-spacing: -0.02em;
+            user-select: none;
+        }
+
+        .footer-bottom {
+            padding: 24px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-copy {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 0.12em;
+        }
+
+        .footer-copy span { color: var(--accent); }
+        .footer-legal { display: flex; gap: 28px; }
+
+        .footer-legal a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--dim);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-legal a:hover { color: #fff; }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible { opacity: 1; transform: none; }
+        .d1 { transition-delay: 0.05s; }
+        .d2 { transition-delay: 0.12s; }
+        .d3 { transition-delay: 0.18s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1100px) {
+            .legal-layout { grid-template-columns: 1fr; gap: 0; }
+            .legal-toc { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 18px 24px; }
+            .nav-links { display: none; }
+            #legal-header { padding: 80px 24px 52px; }
+            #legal-content { padding: 60px 24px 100px; }
+            .footer-top { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .legal-contact-block { padding: 36px 28px; }
+            .browser-table th:last-child,
+            .browser-table td:last-child { display: none; }
+        }
+
+        @media (max-width: 600px) {
+            body { cursor: auto; }
+            .cursor, .cursor-trail { display: none; }
+            nav { padding: 16px 18px; }
+            .logo { font-size: 13px; }
+            .nav-cta { padding: 8px 16px; font-size: 10px; }
+            #legal-header { padding: 64px 18px 44px; }
+            #legal-content { padding: 48px 18px 80px; }
+            .legal-title { font-size: clamp(36px, 12vw, 60px); }
+            .legal-section-title { font-size: clamp(22px, 7vw, 34px); }
+            .footer-top { padding: 60px 18px 30px; }
+            .footer-bottom { padding: 20px 18px; }
+            .footer-big { padding: 20px 18px 0; }
+            .footer-big-text { font-size: clamp(48px, 16vw, 120px); }
+            .legal-contact-block { padding: 28px 20px; }
+            .legal-highlight { padding: 14px 16px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <div class="page-loader" id="loader">
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span><span class="d-letter">D</span><span class="bracket">/&gt;</span>&nbsp;
+            DRAGOCODES
+        </a>
+        <ul class="nav-links">
+            <li><a href="../pages/services.html">Services</a></li>
+            <li><a href="../pages/projects.html">Work</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+        <a href="../pages/contact.html" class="nav-cta">Start a project</a>
+    </nav>
+
+    <!-- ── LEGAL HEADER ── -->
+    <section id="legal-header">
+        <div class="legal-header-inner">
+            <div class="legal-breadcrumb reveal">
+                <a href="/">Home</a>
+                <span class="sep">/</span>
+                Cookie Policy
+            </div>
+            <span class="legal-title reveal d1">Cookie Policy</span>
+            <div class="legal-meta reveal d2">
+                <span class="legal-date">Last updated: <span>March 2026</span></span>
+                <span class="legal-badge">DRAGOCODES</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── LEGAL CONTENT ── -->
+    <section id="legal-content">
+        <div class="legal-content-inner">
+            <div class="legal-layout">
+
+                <!-- TOC SIDEBAR -->
+                <aside class="legal-toc">
+                    <span class="legal-toc-label">On this page</span>
+                    <ul class="legal-toc-list">
+                        <li><a href="#intro" class="active">Introduction</a></li>
+                        <li><a href="#what">What Are Cookies</a></li>
+                        <li><a href="#how">How We Use Cookies</a></li>
+                        <li><a href="#types">Types of Cookies</a></li>
+                        <li><a href="#third-party">Third-Party Cookies</a></li>
+                        <li><a href="#managing">Managing Cookies</a></li>
+                        <li><a href="#changes">Policy Changes</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <div class="legal-main">
+
+                    <p class="legal-intro reveal">
+                        This Cookie Policy explains how <strong>DRAGOCODES</strong> uses cookies and similar tracking technologies when you visit our website. It describes what cookies are, why we use them, and what choices you have regarding their use. By continuing to use our website, you consent to the use of cookies as described in this policy.
+                    </p>
+
+                    <!-- 01 — INTRODUCTION -->
+                    <div class="legal-section reveal" id="intro">
+                        <span class="legal-section-num">01</span>
+                        <h2 class="legal-section-title">Introduction</h2>
+                        <p>DRAGOCODES is a digital engineering studio. When you visit our website at <strong>dragocodes.in</strong>, we may use cookies and similar technologies to improve the functionality of the site, understand how it is being used, and provide you with a better browsing experience.</p>
+                        <p>This policy is intended to give you clear and transparent information about how and why cookies are used on our website. It should be read alongside our <a href="privacy-policy.html" style="color: var(--accent); text-decoration: none; font-weight: 700; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--accent)'">Privacy Policy</a>, which provides broader information about how we handle personal data.</p>
+                    </div>
+
+                    <!-- 02 — WHAT ARE COOKIES -->
+                    <div class="legal-section reveal" id="what">
+                        <span class="legal-section-num">02</span>
+                        <h2 class="legal-section-title">What Are Cookies</h2>
+                        <p>Cookies are small text files that are placed on your device — computer, smartphone, or tablet — when you visit a website. They are widely used across the internet to make websites work more efficiently and to provide information to the owners of those sites.</p>
+                        <p>Cookies allow the website to recognise your device and remember certain information about your visit, such as your preferences or the actions you took during your session. This helps the site deliver a more consistent and personalised experience each time you return.</p>
+                        <p>Cookies do not contain executable code and cannot install software on your device. They are simply small data files that sit on your device and communicate with the website when you visit.</p>
+                        <div class="legal-highlight">
+                            <p>Cookies are <strong>not used to identify you personally</strong> unless you have provided personal information through a form or contact submission on this website.</p>
+                        </div>
+                    </div>
+
+                    <!-- 03 — HOW WE USE COOKIES -->
+                    <div class="legal-section reveal" id="how">
+                        <span class="legal-section-num">03</span>
+                        <h2 class="legal-section-title">How We Use Cookies</h2>
+                        <p>DRAGOCODES uses cookies for a limited and purposeful set of functions. All cookies used on this website are intended to improve the experience of visitors and the performance of the site — not to track individuals for advertising purposes.</p>
+                        <p>Specifically, cookies may be used to:</p>
+                        <ul class="legal-list">
+                            <li><strong>Improve website performance</strong> — to ensure the site loads correctly, runs efficiently, and responds appropriately across different devices and browsers.</li>
+                            <li><strong>Analyse website usage</strong> — to understand aggregate patterns such as which pages are most visited, how long visitors stay on the site, and how they navigate between pages.</li>
+                            <li><strong>Remember visitor preferences</strong> — to retain settings or preferences that improve your browsing experience on subsequent visits.</li>
+                            <li><strong>Ensure proper website functionality</strong> — some features of the website require cookies to function correctly, including contact forms and session management.</li>
+                        </ul>
+                        <p>We do not use cookies for targeted advertising, retargeting, or the sale of visitor data to third parties.</p>
+                    </div>
+
+                    <!-- 04 — TYPES OF COOKIES -->
+                    <div class="legal-section reveal" id="types">
+                        <span class="legal-section-num">04</span>
+                        <h2 class="legal-section-title">Types of Cookies We Use</h2>
+                        <p>The cookies used on this website fall into the following categories:</p>
+                        <ul class="legal-list">
+                            <li>
+                                <strong>Strictly necessary cookies</strong> — These are required for the website to function and cannot be switched off. They are typically set in response to actions you take on the site, such as submitting a form. Without these cookies, some parts of the website may not work properly.
+                            </li>
+                            <li>
+                                <strong>Performance cookies</strong> — These collect anonymised data about how visitors use the website, such as which pages are visited most often and whether any error messages are displayed. This information is used to improve how the website works.
+                            </li>
+                            <li>
+                                <strong>Functional cookies</strong> — These allow the website to remember choices you make, such as your region or language preference, and provide enhanced, more personalised features. They may be set by us or by third-party providers whose services we have added to our pages.
+                            </li>
+                        </ul>
+                        <p>We do not use <strong>targeting or advertising cookies</strong> on this website. No cookies are used to build profiles of your browsing habits for marketing purposes.</p>
+                    </div>
+
+                    <!-- 05 — THIRD-PARTY COOKIES -->
+                    <div class="legal-section reveal" id="third-party">
+                        <span class="legal-section-num">05</span>
+                        <h2 class="legal-section-title">Third-Party Cookies</h2>
+                        <p>Some cookies on this website are placed by third-party services that we use to operate and improve our site. These third parties may set their own cookies in accordance with their own privacy and cookie policies, which are separate from ours.</p>
+                        <p>Third-party services that may set cookies on this website include:</p>
+                        <ul class="legal-list">
+                            <li><strong>Analytics tools</strong> — used to collect anonymised data about website traffic and visitor behaviour. This data is aggregated and does not identify individual users.</li>
+                            <li><strong>Hosting providers</strong> — our hosting infrastructure may set technical cookies necessary for the operation and security of the server environment.</li>
+                            <li><strong>Form processing services</strong> — services such as EmailJS, used to process contact form submissions, may set cookies as part of their standard operation.</li>
+                            <li><strong>Google Fonts</strong> — fonts used on this website are loaded from Google's servers and may result in a connection to Google's infrastructure, which may log request data.</li>
+                        </ul>
+                        <div class="legal-highlight">
+                            <p>DRAGOCODES does not control how third-party services use cookies. We encourage you to review the privacy and cookie policies of any third-party services for more information about their data practices.</p>
+                        </div>
+                        <p>We regularly review the third-party services we use and aim to keep the number of external cookies to a minimum.</p>
+                    </div>
+
+                    <!-- 06 — MANAGING COOKIES -->
+                    <div class="legal-section reveal" id="managing">
+                        <span class="legal-section-num">06</span>
+                        <h2 class="legal-section-title">Managing Cookies</h2>
+                        <p>You have the right to decide whether to accept or reject cookies. You can exercise your cookie preferences by adjusting the settings in your web browser. Most browsers allow you to control cookies through their settings, including the ability to:</p>
+                        <ul class="legal-list">
+                            <li>View which cookies have been set and delete them individually or in bulk.</li>
+                            <li>Block cookies from specific websites or third-party services.</li>
+                            <li>Block all cookies from being set on your device.</li>
+                            <li>Delete all cookies when you close your browser session.</li>
+                        </ul>
+                        <div class="legal-highlight">
+                            <p><strong>Please note:</strong> if you choose to disable or block certain cookies, some features of this website may not function as intended. Strictly necessary cookies cannot be disabled without affecting core website functionality.</p>
+                        </div>
+                        <p>Instructions for managing cookies in the most commonly used browsers are listed below. Settings menus vary slightly between browser versions — refer to your browser's help documentation for the most accurate guidance.</p>
+
+                        <table class="browser-table">
+                            <thead>
+                                <tr>
+                                    <th>Browser</th>
+                                    <th>Cookie settings location</th>
+                                    <th>Help link</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Chrome</td>
+                                    <td>Settings → Privacy and security → Cookies and other site data</td>
+                                    <td><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">View guide</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Firefox</td>
+                                    <td>Settings → Privacy &amp; Security → Cookies and Site Data</td>
+                                    <td><a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer" target="_blank" rel="noopener">View guide</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Safari</td>
+                                    <td>Preferences → Privacy → Manage Website Data</td>
+                                    <td><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank" rel="noopener">View guide</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Edge</td>
+                                    <td>Settings → Cookies and site permissions → Cookies and site data</td>
+                                    <td><a href="https://support.microsoft.com/en-us/windows/delete-and-manage-cookies" target="_blank" rel="noopener">View guide</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>For more general information about cookies and how to manage them, you can also visit <strong>allaboutcookies.org</strong>.</p>
+                    </div>
+
+                    <!-- 07 — CHANGES -->
+                    <div class="legal-section reveal" id="changes">
+                        <span class="legal-section-num">07</span>
+                        <h2 class="legal-section-title">Changes to This Policy</h2>
+                        <p>DRAGOCODES may update this Cookie Policy from time to time to reflect changes in the technologies we use, updates to applicable law, or improvements to our data practices. When changes are made, the "Last updated" date at the top of this page will be revised accordingly.</p>
+                        <p>We encourage visitors to review this page periodically to stay informed about how we use cookies and what choices are available to them. Continued use of our website following any changes constitutes acceptance of the updated Cookie Policy.</p>
+                        <p>Where changes are material — meaning they significantly affect how cookies are used or your rights in relation to them — we will endeavour to provide clearer notice on the website.</p>
+                    </div>
+
+                    <!-- CONTACT BLOCK -->
+                    <div class="legal-contact-block reveal" id="contact">
+                        <span class="legal-section-num">08</span>
+                        <div class="legal-contact-title">Contact</div>
+                        <p class="legal-contact-body">
+                            If you have any questions, concerns, or requests about this Cookie Policy — including questions about the specific cookies in use on this website or how to exercise your preferences — please get in touch directly.
+                        </p>
+                        <a href="mailto:dragocodes@gmail.com" class="legal-contact-email">
+                            dragocodes@gmail.com
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-top">
+            <div>
+                <span class="footer-col-title">Navigation</span>
+                <ul class="footer-links">
+                    <li><a href="../pages/services.html">Services</a></li>
+                    <li><a href="../pages/projects.html">Work</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-col-title">Contact</span>
+                <ul class="footer-links">
+                    <li><a href="mailto:dragocodes@gmail.com">dragocodes@gmail.com</a></li>
+                    <li><a href="https://github.com/dragocodes">GitHub</a></li>
+                    <li><a href="https://instagram.com/dragocodes">Instagram</a></li>
+                    <li><a href="https://X.com/dragocodes">Twitter / X</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-col-title">Have a Project in Mind?</span>
+                <form id="newsletterForm">
+                    <div class="newsletter-form">
+                        <p>Drop your email and we'll reach out.</p>
+                        <div class="nl-input-wrap">
+                            <input type="email" id="leadEmail" placeholder="Enter your email" required>
+                            <button type="submit" class="nl-btn">→</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-big">
+            <span class="footer-big-text">DRAGOCODES</span>
+        </div>
+
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2026 <span>DRAGOCODES</span>. All rights reserved.</span>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms &amp; Conditions</a>
+                <a href="cookies.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cursor
+        const cursor = document.getElementById('cursor');
+        const trail  = document.getElementById('cursorTrail');
+        document.addEventListener('mousemove', e => {
+            const mx = e.clientX, my = e.clientY;
+            cursor.style.left = mx - 6  + 'px';
+            cursor.style.top  = my - 6  + 'px';
+            setTimeout(() => {
+                trail.style.left = mx - 18 + 'px';
+                trail.style.top  = my - 18 + 'px';
+            }, 80);
+        });
+
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer  = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Trigger header reveals on load
+        document.querySelectorAll('#legal-header .reveal').forEach(el => {
+            setTimeout(() => el.classList.add('visible'), 300);
+        });
+
+        // Magnetic nav CTA
+        document.querySelectorAll('.nav-cta').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                btn.style.transform = `translate(${(e.clientX - r.left - r.width/2) * 0.25}px, ${(e.clientY - r.top - r.height/2) * 0.25}px)`;
+            });
+            btn.addEventListener('mouseleave', () => btn.style.transform = 'translate(0,0)');
+        });
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const l = document.getElementById('loader');
+                if (l) l.style.display = 'none';
+            }, 1400);
+        });
+
+        // TOC active state
+        const sections = document.querySelectorAll('.legal-section, .legal-contact-block');
+        const tocLinks  = document.querySelectorAll('.legal-toc-list a');
+
+        const tocObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { threshold: 0.4, rootMargin: '-80px 0px -60% 0px' });
+
+        sections.forEach(s => tocObserver.observe(s));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () { emailjs.init("2d5hFZGn7vjt4caYf"); })();
+
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn   = this.querySelector('.nl-btn');
+            const email = document.getElementById('leadEmail').value;
+            btn.textContent = 'Sending...';
+            emailjs.send('service_818p4k3', 'template_2a8g5s8', { email }).then(() => {
+                btn.textContent = '✓';
+                document.getElementById('leadEmail').value = '';
+                setTimeout(() => { btn.textContent = '→'; }, 3000);
+            }, err => {
+                console.log(err);
+                btn.textContent = 'Error';
+            });
+        });
+    </script>
+
+</body>
+</html>

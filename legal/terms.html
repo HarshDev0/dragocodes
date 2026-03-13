@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>Terms & Conditions — DRAGOCODES</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Mulish:wght@300;400;500;600;700;800;900&family=Text+Me+One&display=swap"
+        rel="stylesheet" />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --accent: #9f231c;
+            --accent-light: #c4352d;
+            --bg: #0e0e0e;
+            --text: #ffffff;
+            --muted: #d6d6d6;
+            --dim: #6b6b6b;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Mulish', sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* FAVICON */
+        .icon {
+            width: 26px;
+            height: 26px;
+            stroke: white;
+        }
+
+        /* CUSTOM CURSOR */
+        .cursor {
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.15s ease, opacity 0.2s;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-trail {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(159, 35, 28, 0.4);
+            border-radius: 50%;
+            position: fixed;
+            top: 0; left: 0;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            mix-blend-mode: difference;
+        }
+
+        body:hover .cursor { opacity: 1; }
+
+        /* NOISE */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9990;
+            opacity: 0.35;
+        }
+
+        img, svg { max-width: 100%; height: auto; }
+
+        /* ─── NAV ─── */
+        nav {
+            position: sticky;
+            top: 0; left: 0; right: 0;
+            z-index: 2000;
+            padding: 22px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            border-bottom: none;
+            transition: background 0.35s ease, backdrop-filter 0.35s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(14, 14, 14, 0.92);
+            backdrop-filter: blur(12px);
+            border-color: var(--border);
+        }
+
+        .logo {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            gap: 2px;
+        }
+
+        .logo .bracket { color: var(--accent); }
+        .logo .d-letter { color: #ffffff; }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -3px; left: 0;
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 22px;
+            border: 1px solid var(--accent);
+            transition: background 0.25s, color 0.25s;
+        }
+
+        .nav-cta:hover { background: var(--accent); }
+
+        /* ─── LEGAL HEADER ─── */
+        #legal-header {
+            padding: 100px 48px 64px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-header-inner { max-width: 900px; }
+
+        .legal-breadcrumb {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .legal-breadcrumb::before {
+            content: '';
+            display: block;
+            width: 24px; height: 1px;
+            background: var(--accent);
+        }
+
+        .legal-breadcrumb a {
+            color: var(--dim);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .legal-breadcrumb a:hover { color: #fff; }
+        .legal-breadcrumb .sep { color: var(--dim); font-size: 10px; }
+
+        .legal-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+            font-size: clamp(52px, 7vw, 96px);
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: 0.01em;
+            color: var(--text);
+            display: block;
+            position: relative;
+            padding-bottom: 28px;
+        }
+
+        .legal-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 56px; height: 2px;
+            background: var(--accent);
+        }
+
+        .legal-meta {
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .legal-date {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--dim);
+        }
+
+        .legal-date span { color: var(--muted); }
+
+        .legal-badge {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(159, 35, 28, 0.35);
+            padding: 5px 12px;
+        }
+
+        /* ─── LEGAL CONTENT ─── */
+        #legal-content {
+            padding: 80px 48px 120px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .legal-content-inner { max-width: 900px; }
+
+        .legal-layout {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        /* TOC SIDEBAR */
+        .legal-toc {
+            position: sticky;
+            top: 100px;
+        }
+
+        .legal-toc-label {
+            font-family: 'Mulish', sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .legal-toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .legal-toc-list a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--dim);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .legal-toc-list a::before {
+            content: '';
+            width: 0; height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+            flex-shrink: 0;
+        }
+
+        .legal-toc-list a:hover { color: #fff; }
+        .legal-toc-list a:hover::before { width: 12px; }
+
+        .legal-toc-list a.active {
+            color: var(--accent);
+        }
+
+        .legal-toc-list a.active::before {
+            width: 12px;
+        }
+
+        /* INTRO PARAGRAPH */
+        .legal-intro {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.85;
+            max-width: 700px;
+            padding-bottom: 64px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 64px;
+        }
+
+        .legal-intro strong { color: #fff; font-weight: 700; }
+
+        /* SECTION BLOCK */
+        .legal-section {
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 56px;
+        }
+
+        .legal-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .legal-section-num {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        .legal-section-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+            font-size: clamp(28px, 3.5vw, 44px);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .legal-section p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--muted);
+            line-height: 1.85;
+            margin-bottom: 18px;
+        }
+
+        .legal-section p:last-child { margin-bottom: 0; }
+
+        .legal-section p strong { color: #fff; font-weight: 700; }
+
+        /* highlight box for important terms */
+        .legal-highlight {
+            border-left: 2px solid var(--accent);
+            padding: 16px 20px;
+            background: rgba(159, 35, 28, 0.05);
+            margin: 20px 0;
+        }
+
+        .legal-highlight p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 0 !important;
+        }
+
+        .legal-highlight p strong { color: #fff; }
+
+        /* list */
+        .legal-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 18px 0;
+        }
+
+        .legal-list li {
+            font-family: 'Mulish', sans-serif;
+            font-size: 15px;
+            color: var(--muted);
+            line-height: 1.75;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .legal-list li::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 12px;
+            width: 10px; height: 1px;
+            background: var(--accent);
+        }
+
+        /* CONTACT BLOCK */
+        .legal-contact-block {
+            margin-top: 72px;
+            padding: 48px;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legal-contact-block::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            background: var(--accent);
+        }
+
+        .legal-contact-title {
+            font-family: 'Teko', sans-serif;
+            font-weight: 600;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .legal-contact-body {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 20px;
+        }
+
+        .legal-contact-email {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.2s, gap 0.3s;
+        }
+
+        .legal-contact-email:hover { color: #fff; gap: 16px; }
+
+        .legal-contact-email svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+        /* PAGE LOADER */
+        .page-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            display: flex;
+            pointer-events: none;
+        }
+
+        .loader-strip {
+            flex: 1;
+            background: #8d0000;
+            transform: translateY(0);
+            animation: stripOpen 1.2s cubic-bezier(.77, 0, .18, 1) forwards;
+        }
+
+        .loader-strip:nth-child(2) { animation-delay: .1s }
+        .loader-strip:nth-child(3) { animation-delay: .2s }
+        .loader-strip:nth-child(4) { animation-delay: .3s }
+        .loader-strip:nth-child(5) { animation-delay: .4s }
+
+        @keyframes stripOpen { to { transform: translateY(-100%); } }
+
+        section { position: relative; z-index: 2; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: #080808;
+            border-top: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-top {
+            padding: 80px 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .footer-col-title {
+            font-family: 'Mulish', sans-serif;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--dim);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 14px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a::before {
+            content: '';
+            width: 16px; height: 1px;
+            background: var(--accent);
+            flex-shrink: 0;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover { color: #fff; }
+        .footer-links a:hover::before { opacity: 1; }
+
+        .newsletter-form { display: flex; flex-direction: column; gap: 12px; }
+
+        .newsletter-form p {
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .nl-input-wrap {
+            display: flex;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .nl-input-wrap:focus-within { border-color: var(--accent); }
+
+        .nl-input-wrap input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 14px 18px;
+            font-family: 'Mulish', sans-serif;
+            font-size: 13px;
+            color: #fff;
+        }
+
+        .nl-input-wrap input::placeholder { color: var(--dim); }
+
+        .nl-btn {
+            background: var(--accent);
+            border: none;
+            padding: 14px 20px;
+            color: #fff;
+            cursor: pointer;
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: background 0.25s;
+        }
+
+        .nl-btn:hover { background: var(--accent-light); }
+
+        .footer-big { padding: 20px 48px 0; overflow: hidden; position: relative; }
+
+        .footer-big-text {
+            font-family: 'Teko', sans-serif;
+            font-weight: 700;
+            font-size: clamp(60px, 12vw, 220px);
+            text-transform: uppercase;
+            line-height: 0.82;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+            white-space: nowrap;
+            display: block;
+            letter-spacing: -0.02em;
+            user-select: none;
+        }
+
+        .footer-bottom {
+            padding: 24px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-copy {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            color: var(--dim);
+            letter-spacing: 0.12em;
+        }
+
+        .footer-copy span { color: var(--accent); }
+
+        .footer-legal { display: flex; gap: 28px; }
+
+        .footer-legal a {
+            font-family: 'Mulish', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            color: var(--dim);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .footer-legal a:hover { color: #fff; }
+
+        /* REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible { opacity: 1; transform: none; }
+
+        .d1 { transition-delay: 0.05s; }
+        .d2 { transition-delay: 0.12s; }
+        .d3 { transition-delay: 0.18s; }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1100px) {
+            .legal-layout { grid-template-columns: 1fr; gap: 0; }
+            .legal-toc { display: none; }
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 18px 24px; }
+            .nav-links { display: none; }
+            #legal-header { padding: 80px 24px 52px; }
+            #legal-content { padding: 60px 24px 100px; }
+            .footer-top { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+            .legal-contact-block { padding: 36px 28px; }
+        }
+
+        @media (max-width: 600px) {
+            body { cursor: auto; }
+            .cursor, .cursor-trail { display: none; }
+            nav { padding: 16px 18px; }
+            .logo { font-size: 13px; }
+            .nav-cta { padding: 8px 16px; font-size: 10px; }
+            #legal-header { padding: 64px 18px 44px; }
+            #legal-content { padding: 48px 18px 80px; }
+            .legal-title { font-size: clamp(36px, 12vw, 60px); }
+            .legal-section-title { font-size: clamp(22px, 7vw, 34px); }
+            .footer-top { padding: 60px 18px 30px; }
+            .footer-bottom { padding: 20px 18px; }
+            .footer-big { padding: 20px 18px 0; }
+            .footer-big-text { font-size: clamp(48px, 16vw, 120px); }
+            .legal-contact-block { padding: 28px 20px; }
+            .legal-highlight { padding: 14px 16px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursorTrail"></div>
+
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="loader">
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+        <div class="loader-strip"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="/" class="logo">
+            <span class="bracket">&lt;</span><span class="d-letter">D</span><span class="bracket">/&gt;</span>&nbsp;
+            DRAGOCODES
+        </a>
+        <ul class="nav-links">
+            <li><a href="../pages/services.html">Services</a></li>
+            <li><a href="../pages/projects.html">Work</a></li>
+            <li><a href="../pages/about.html">About</a></li>
+            <li><a href="../pages/contact.html">Contact</a></li>
+        </ul>
+        <a href="../pages/contact.html" class="nav-cta">Start a project</a>
+    </nav>
+
+    <!-- ── LEGAL HEADER ── -->
+    <section id="legal-header">
+        <div class="legal-header-inner">
+            <div class="legal-breadcrumb reveal">
+                <a href="/">Home</a>
+                <span class="sep">/</span>
+                Terms &amp; Conditions
+            </div>
+            <span class="legal-title reveal d1">Terms &amp; Conditions</span>
+            <div class="legal-meta reveal d2">
+                <span class="legal-date">Last updated: <span>March 2026</span></span>
+                <span class="legal-badge">DRAGOCODES</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── LEGAL CONTENT ── -->
+    <section id="legal-content">
+        <div class="legal-content-inner">
+            <div class="legal-layout">
+
+                <!-- TOC SIDEBAR -->
+                <aside class="legal-toc">
+                    <span class="legal-toc-label">On this page</span>
+                    <ul class="legal-toc-list">
+                        <li><a href="#intro" class="active">Introduction</a></li>
+                        <li><a href="#design">Design Approval</a></li>
+                        <li><a href="#payment">Payment Terms</a></li>
+                        <li><a href="#hosting">Hosting & Domain</a></li>
+                        <li><a href="#support">Post-Launch Support</a></li>
+                        <li><a href="#portfolio">Portfolio Rights</a></li>
+                        <li><a href="#cancellation">Cancellation</a></li>
+                        <li><a href="#liability">Limitation of Liability</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <div class="legal-main">
+
+                    <p class="legal-intro reveal">
+                        These Terms &amp; Conditions govern the working relationship between <strong>DRAGOCODES</strong> and its clients. By commissioning any service — including web development, UI/UX design, brand identity, backend engineering, or any other digital service offered by DRAGOCODES — you agree to be bound by the terms outlined on this page. Please read them carefully before proceeding with any project agreement.
+                    </p>
+
+                    <!-- 01 — INTRODUCTION -->
+                    <div class="legal-section reveal" id="intro">
+                        <span class="legal-section-num">01</span>
+                        <h2 class="legal-section-title">Introduction</h2>
+                        <p>DRAGOCODES is a digital engineering studio providing web development, brand identity, backend engineering, UI/UX design, CRM systems, and AI integration services. These terms apply to all projects and engagements undertaken by DRAGOCODES on behalf of a client.</p>
+                        <p>By signing a project agreement, making a payment, or otherwise instructing DRAGOCODES to commence work, the client confirms that they have read, understood, and agree to these Terms &amp; Conditions in full. These terms constitute the entire agreement between DRAGOCODES and the client unless otherwise stated in a separate written contract.</p>
+                        <p>DRAGOCODES reserves the right to update these terms at any time. The version in effect at the time a project agreement is signed will govern that engagement.</p>
+                    </div>
+
+                    <!-- 02 — DESIGN APPROVAL -->
+                    <div class="legal-section reveal" id="design">
+                        <span class="legal-section-num">02</span>
+                        <h2 class="legal-section-title">Project Approval &amp; Design Changes</h2>
+                        <p>During the design phase, DRAGOCODES will present <strong>2–3 distinct design concepts</strong> for the client to review. The client is expected to select one concept for approval before development begins.</p>
+                        <div class="legal-highlight">
+                            <p><strong>Once a design concept is formally approved by the client, the overall design direction is considered final.</strong> Development will proceed based on the approved design.</p>
+                        </div>
+                        <p>Any major design changes requested after formal approval — including but not limited to layout restructuring, typographic overhauls, colour system changes, or significant visual redesigns — will be treated as additional scope and may incur extra charges at DRAGOCODES' standard rate.</p>
+                        <p>Clients are strongly encouraged to request all desired design modifications and provide consolidated feedback <strong>before providing formal approval</strong>. Minor copy edits, small text changes, and content updates during development are generally accommodated without additional charge, at DRAGOCODES' discretion.</p>
+                    </div>
+
+                    <!-- 03 — PAYMENT TERMS -->
+                    <div class="legal-section reveal" id="payment">
+                        <span class="legal-section-num">03</span>
+                        <h2 class="legal-section-title">Payment Terms</h2>
+                        <p>All projects operate on a two-stage payment structure. The following terms apply to all engagements unless otherwise agreed upon in a separate written contract:</p>
+                        <ul class="legal-list">
+                            <li><strong>25% deposit</strong> — due before any design or development work begins. This payment confirms the project agreement and secures the client's position in the DRAGOCODES production schedule.</li>
+                            <li><strong>75% final payment</strong> — due in full before the completed website or product is deployed to a live environment and ownership is transferred to the client.</li>
+                        </ul>
+                        <div class="legal-highlight">
+                            <p><strong>If the final payment is not completed, the website will not be deployed to a live environment.</strong> Ownership of all design files, source code, and deliverables remains with DRAGOCODES until full payment has been received.</p>
+                        </div>
+                        <p>All invoices are due within the timeframe specified on the invoice. Late payments may delay the project timeline. DRAGOCODES reserves the right to pause active work on a project where payment obligations have not been met.</p>
+                        <p>Payment methods and currency will be agreed upon at the start of each project.</p>
+                    </div>
+
+                    <!-- 04 — HOSTING & DOMAIN -->
+                    <div class="legal-section reveal" id="hosting">
+                        <span class="legal-section-num">04</span>
+                        <h2 class="legal-section-title">Hosting &amp; Domain Responsibility</h2>
+                        <p>DRAGOCODES provides website design, development, and deployment services only. The following are the <strong>sole responsibility of the client</strong> unless explicitly stated otherwise in the project agreement:</p>
+                        <ul class="legal-list">
+                            <li>Domain name registration and renewal fees.</li>
+                            <li>Web hosting costs and ongoing hosting management.</li>
+                            <li>SSL certificates where not included with the hosting provider.</li>
+                            <li>Any third-party service subscriptions required for the project (e.g. CMS licences, email providers, analytics platforms).</li>
+                        </ul>
+                        <p>DRAGOCODES may assist with the technical setup and deployment process — including configuring DNS settings, deploying code to hosting environments, and connecting third-party services — but does not purchase, manage, or hold responsibility for any domains, hosting accounts, or external services on behalf of the client.</p>
+                        <p>Any outages, performance issues, or failures arising from the client's hosting provider or domain registrar are outside the scope of DRAGOCODES' responsibility.</p>
+                    </div>
+
+                    <!-- 05 — POST-LAUNCH SUPPORT -->
+                    <div class="legal-section reveal" id="support">
+                        <span class="legal-section-num">05</span>
+                        <h2 class="legal-section-title">Post-Launch Support</h2>
+                        <p>Following deployment of the completed project, DRAGOCODES provides <strong>two weeks of post-launch support</strong> at no additional charge. This support period covers:</p>
+                        <ul class="legal-list">
+                            <li>Bug fixes and technical errors directly attributable to the DRAGOCODES build.</li>
+                            <li>Corrections to content or functionality that deviate from the approved design or specification.</li>
+                            <li>Minor technical configuration issues arising from the initial deployment.</li>
+                        </ul>
+                        <div class="legal-highlight">
+                            <p>The post-launch support period does <strong>not</strong> cover new feature requests, design changes, content updates, or additional modifications beyond the original project scope. These will be quoted and treated as a new or separate engagement.</p>
+                        </div>
+                        <p>After the two-week support window has closed, all ongoing maintenance, updates, and support are subject to DRAGOCODES' standard hourly or retainer rates. Clients who require ongoing support are encouraged to discuss a dedicated maintenance agreement at the start of the project.</p>
+                    </div>
+
+                    <!-- 06 — PORTFOLIO RIGHTS -->
+                    <div class="legal-section reveal" id="portfolio">
+                        <span class="legal-section-num">06</span>
+                        <h2 class="legal-section-title">Portfolio Rights</h2>
+                        <p>DRAGOCODES reserves the right to display work completed for clients — including screenshots, live previews, design mockups, and case study content — in its online portfolio, website, social media channels, and marketing materials.</p>
+                        <p>If a client requires that their project remain confidential and not be displayed publicly, this must be formally requested in writing and agreed upon before or during the project agreement. Any such confidentiality arrangement must be explicitly documented in the project contract.</p>
+                        <p>DRAGOCODES will always respect legitimate confidentiality requests and will not disclose sensitive business information when presenting portfolio work.</p>
+                    </div>
+
+                    <!-- 07 — CANCELLATION -->
+                    <div class="legal-section reveal" id="cancellation">
+                        <span class="legal-section-num">07</span>
+                        <h2 class="legal-section-title">Project Cancellation</h2>
+                        <p>Once a project agreement has been signed and the initial deposit payment has been received, the project is formally in progress. DRAGOCODES allocates time, resources, and team capacity based on confirmed engagements.</p>
+                        <div class="legal-highlight">
+                            <p><strong>Projects cannot be cancelled midway once work has commenced.</strong> If a client chooses to withdraw from the project after work has begun, all payments made up to that point are non-refundable.</p>
+                        </div>
+                        <p>This policy reflects the time, planning, and resources that DRAGOCODES commits from the moment a project is confirmed. In the event of exceptional circumstances, DRAGOCODES may — at its sole discretion — agree to an alternative arrangement, but this is not guaranteed and must be agreed upon in writing.</p>
+                        <p>DRAGOCODES also reserves the right to terminate an engagement if a client fails to provide necessary feedback, assets, or payments within a reasonable timeframe, or acts in a manner that makes the continuation of the project untenable. In such cases, all payments received will be retained by DRAGOCODES to cover work completed.</p>
+                    </div>
+
+                    <!-- 08 — LIMITATION OF LIABILITY -->
+                    <div class="legal-section reveal" id="liability">
+                        <span class="legal-section-num">08</span>
+                        <h2 class="legal-section-title">Limitation of Liability</h2>
+                        <p>DRAGOCODES delivers its services with diligence, expertise, and care. However, the agency's liability is limited to the direct services it provides. DRAGOCODES is not responsible for losses, damages, or failures arising from:</p>
+                        <ul class="legal-list">
+                            <li>Third-party service failures, outages, or changes to APIs and integrations outside DRAGOCODES' control.</li>
+                            <li>Hosting provider issues, server downtime, or infrastructure failures.</li>
+                            <li>Domain registrar problems, expired domain names, or DNS propagation delays.</li>
+                            <li>External software, plugins, or platforms that are not part of the DRAGOCODES build.</li>
+                            <li>Client-side errors, incorrect content provided by the client, or actions taken by the client after delivery.</li>
+                            <li>Security vulnerabilities introduced by third-party systems or the client's hosting environment.</li>
+                        </ul>
+                        <p>In no event shall DRAGOCODES' total liability to a client exceed the total amount paid by that client for the specific project to which the claim relates. DRAGOCODES shall not be liable for any indirect, consequential, special, or punitive damages of any kind.</p>
+                    </div>
+
+                    <!-- CONTACT BLOCK -->
+                    <div class="legal-contact-block reveal" id="contact">
+                        <span class="legal-section-num">09</span>
+                        <div class="legal-contact-title">Contact</div>
+                        <p class="legal-contact-body">
+                            If you have questions, concerns, or requests related to these Terms &amp; Conditions — or wish to discuss a specific clause before commencing a project — please reach out directly. We are committed to clear, transparent communication at every stage of the working relationship.
+                        </p>
+                        <a href="mailto:dragocodes@gmail.com" class="legal-contact-email">
+                            dragocodes@gmail.com
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <div class="footer-top">
+            <div>
+                <span class="footer-col-title">Navigation</span>
+                <ul class="footer-links">
+                    <li><a href="../pages/services.html">Services</a></li>
+                    <li><a href="../pages/projects.html">Work</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-col-title">Contact</span>
+                <ul class="footer-links">
+                    <li><a href="mailto:dragocodes@gmail.com">dragocodes@gmail.com</a></li>
+                    <li><a href="https://github.com/HarshDev0">GitHub</a></li>
+                    <li><a href="https://instagram.com/dragocodes">Instagram</a></li>
+                    <li><a href="https://x.com/Dragocode">Twitter / X</a></li>
+                </ul>
+            </div>
+            <div>
+                <span class="footer-col-title">Have a Project in Mind?</span>
+                <form id="newsletterForm">
+                    <div class="newsletter-form">
+                        <p>Drop your email and we'll reach out.</p>
+                        <div class="nl-input-wrap">
+                            <input type="email" id="leadEmail" placeholder="Enter your email" required>
+                            <button type="submit" class="nl-btn">→</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-big">
+            <span class="footer-big-text">DRAGOCODES</span>
+        </div>
+
+        <div class="footer-bottom">
+            <span class="footer-copy">© 2026 <span>DRAGOCODES</span>. All rights reserved.</span>
+            <div class="footer-legal">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms.html">Terms &amp; Conditions</a>
+                <a href="cookie-policy.html">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cursor
+        const cursor = document.getElementById('cursor');
+        const trail  = document.getElementById('cursorTrail');
+        document.addEventListener('mousemove', e => {
+            const mx = e.clientX, my = e.clientY;
+            cursor.style.left = mx - 6  + 'px';
+            cursor.style.top  = my - 6  + 'px';
+            setTimeout(() => {
+                trail.style.left = mx - 18 + 'px';
+                trail.style.top  = my - 18 + 'px';
+            }, 80);
+        });
+
+        // Nav scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Scroll reveal
+        const revealEls = document.querySelectorAll('.reveal');
+        const observer  = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        revealEls.forEach(el => observer.observe(el));
+
+        // Trigger header reveals on load
+        document.querySelectorAll('#legal-header .reveal').forEach(el => {
+            setTimeout(() => el.classList.add('visible'), 300);
+        });
+
+        // Magnetic nav CTA
+        document.querySelectorAll('.nav-cta').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const r = btn.getBoundingClientRect();
+                btn.style.transform = `translate(${(e.clientX - r.left - r.width/2) * 0.25}px, ${(e.clientY - r.top - r.height/2) * 0.25}px)`;
+            });
+            btn.addEventListener('mouseleave', () => btn.style.transform = 'translate(0,0)');
+        });
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const l = document.getElementById('loader');
+                if (l) l.style.display = 'none';
+            }, 1400);
+        });
+
+        // TOC active state on scroll
+        const sections = document.querySelectorAll('.legal-section, .legal-contact-block');
+        const tocLinks  = document.querySelectorAll('.legal-toc-list a');
+
+        const tocObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    tocLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, { threshold: 0.4, rootMargin: '-80px 0px -60% 0px' });
+
+        sections.forEach(s => tocObserver.observe(s));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () { emailjs.init("2d5hFZGn7vjt4caYf"); })();
+
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn   = this.querySelector('.nl-btn');
+            const email = document.getElementById('leadEmail').value;
+            btn.textContent = 'Sending...';
+            emailjs.send('service_818p4k3', 'template_2a8g5s8', { email }).then(() => {
+                btn.textContent = '✓';
+                document.getElementById('leadEmail').value = '';
+                setTimeout(() => { btn.textContent = '→'; }, 3000);
+            }, err => {
+                console.log(err);
+                btn.textContent = 'Error';
+            });
+        });
+    </script>
+
+</body>
+</html>
