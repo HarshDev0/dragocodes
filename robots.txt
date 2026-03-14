@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dragocodes.in/sitemap.xml
+Sitemap: https://www.dragocodes.in/sitemap.xml
