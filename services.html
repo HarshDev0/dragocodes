@@ -39,6 +39,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&family=Mulish:wght@300;400;500;600;700;800;900&family=Text+Me+One&display=swap"
+        rel="stylesheet">
     <style>
         *,
         *::before,
@@ -368,6 +371,7 @@
 
         .hero-title.accent {
             color: var(--accent);
+            mix-blend-mode: difference;
         }
 
         .hero-overlay-phrase {
@@ -411,6 +415,15 @@
             display: flex;
             align-items: center;
             gap: 24px;
+        }
+
+        /* .white-text {
+            color: white;
+        } */
+
+        .powerful-trans {
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.2);
+            color: transparent;
         }
 
         /* ── BUTTONS ── */
@@ -1384,6 +1397,10 @@
                 display: none;
             }
 
+            .white-text {
+                color: var(--accent);
+            }
+
             .services-header,
             .process-header {
                 flex-direction: column;
@@ -1473,6 +1490,10 @@
             .hero-cta-group {
                 flex-direction: column;
                 align-items: flex-start;
+            }
+
+            .white-text {
+                color: var(--accent);
             }
 
             .btn-primary {
@@ -1569,7 +1590,9 @@
         <div class="hero-title-wrap">
             <span class="hero-title reveal d2">OUR DIGITAL</span>
             <span class="hero-title outline reveal d3">ENGINEERING</span>
-            <span class="hero-title accent reveal d4">SERVICES</span>
+            <span class="hero-title accent reveal d4">
+                SERVIC<span class="white-text">ES</span>
+            </span>
             <div class="hero-overlay-phrase">what we build</div>
         </div>
 
@@ -1879,7 +1902,7 @@
         <h2 class="cta-headline reveal d1">
             READY TO BUILD<br>
             SOMETHING<br>
-            <em>POWERFUL</em>
+            <em class="hollow">POWERFUL</em>
         </h2>
 
         <div class="cta-row reveal d2">
